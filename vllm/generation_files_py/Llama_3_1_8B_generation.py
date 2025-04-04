@@ -21,7 +21,7 @@ def main_Llama_3_1_8B(args):
     # Load model
     args.specific_model_path = os.path.join(args.model_path,'Llama-3.1-8B')
     print(f"Generation saved t")
-    llm = LLM(model=args.specific_model_path,max_model_len=args.max_model_len,tensor_parallel_size=args.tensor_parallel_size)
+    llm = LLM(model=args.specific_model_path,max_model_len=args.max_model_len)
     print(f"Generation saved to ")
     # Set sampling parameters
     sampling_params = SamplingParams(

@@ -21,7 +21,10 @@ def main_DeepSeek_R1_Distill_Llama_70B(args):
     # Load model
     args.specific_model_path = os.path.join(args.model_path,'DeepSeek-R1-Distill-Llama-70B')
     print(f"Generation saved t")
-    llm = LLM(model=args.specific_model_path,max_model_len=args.max_model_len,tensor_parallel_size=args.tensor_parallel_size)
+    llm = LLM(
+            model=args.specific_model_path,
+            max_model_len=args.max_model_len,
+            tensor_parallel_size=args.tensor_parallel_size)
     print(f"Generation saved to ")
     # Set sampling parameters
     sampling_params = SamplingParams(
