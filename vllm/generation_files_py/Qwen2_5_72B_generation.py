@@ -18,14 +18,14 @@ def main_Qwen2_5_72B(args):
 
     # Load model
     args.specific_model_path = os.path.join(args.model_path,'Qwen2.5-72B')
-    llm = LLM(model=args.specific_model_path)
+    llm = LLM(model=args.specific_model_path,max_model_len=args.max_model_len,tensor_parallel_size=args.tensor_parallel_size)
 
     # Set sampling parameters
     sampling_params = SamplingParams(
         temperature=args.temperature,
         top_p=args.top_p,
         top_k=args.top_k,
-        max_tokens=args.max_tokens,
+        imax_tokens=args.max_tokens,
         repetition_penalty=args.repetition_penalty
     )
 

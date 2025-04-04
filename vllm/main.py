@@ -12,7 +12,9 @@ def main():
 
     #Model
     parser.add_argument('--model', type=str, default='Qwen2_5_72B', help='used model name')
-    
+    parser.add_argument('--tensor-parallel-size', type=int, default=1, help='used model name')
+    parser.add_argument('--max_model_len', type=int, default=2048, help='used model name')
+
     # Sampling parameters
     parser.add_argument('--temperature', type=float, default=0.7)
     parser.add_argument('--top_p', type=float, default=0.9)

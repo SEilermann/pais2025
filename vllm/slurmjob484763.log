@@ -1,0 +1,89 @@
+
+Wegen Änderungen an MODULEPATH wurden folgende Module erneut geladen:
+  1) cuda/12.4.1
+
+[0;33m+-----------------------------------------------------------------------------------+
+[0;33m|                       [1;31mCOMPLIANCE WITH SOFTWARE LICENSE TERMS[0;33m                      |
+[0;33m|                                                                                   |
+[0;33m| Your use of this module constitutes acceptance of the software license agreement. |
+[0;33m| Read the Term of Service of Anaconda. In most cases you need to buy a license to  |
+[0;33m| use the service. You might want to use the '[0;36mminiforge3[0;33m' module instead or set     |
+[0;33m| another default cannel: [0;36mconda config --add channels conda-forge [0;33m                  |
+[0;33m| [0;36mconda config --set channel_priority strict [0;33m     (both commands are necessary)     |
+[0;33m|                                                                                   |
+[0;33m| Alternatively use: [0;36mconda install [0m<package> [0;36m--channel conda-forge -n [0m<myenv>     [0;33m  |
+[0;33m|                                                                                   |
+[0;33m| '[1;31mFor sake of clarity, use by government entities and nonprofit entities with over[0;33m |
+[0;33m| [1;31m200 employees or contractors is considered Organizational Use.                   [0;33m |
+[0;33m| [1;31mPurchasing Starter tier license(s) does not satisfy the Organizational Use paid  [0;33m |
+[0;33m| [1;31mlicense requirement set forth in this Section 2.1. Educational Entities will be  [0;33m |
+[0;33m| [1;31mexempt from the paid license requirement, provided that the use of the Anaconda  [0;33m |
+[0;33m| [1;31mOffering(s) is solely limited to being used for a curriculum-based course.       [0;33m |
+[0;33m| [1;31mAnaconda reserves the right to monitor the registration, download, use,          [0;33m |
+[0;33m| [1;31minstallation, access, or enjoyment of the Anaconda Offerings to ensure it is part[0;33m |
+[0;33m| [1;31mof a curriculum.  Utilizing Miniconda to pull package updates from the           [0;33m |
+[0;33m| [1;31mAnaconda Public Repository without a commercial license (if required by the      [0;33m |
+[0;33m| [1;31mconditions set forth in Section 2 of this Terms of Service) is considered a      [0;33m |
+[0;33m| [1;31mviolation of the Terms of Service.[0;33m'                                               |
+[0;33m| [1;31m                  (ANACONDA TERMS OF SERVICE 2.1, Effective Date: March 31, 2024)[0;33m |
+[0;33m+-----------------------------------------------------------------------------------+
+
+[1;31mWARNING:[0;33m Deprecated module. Will be removed in April 2025.
+Use the module '[0;36mminiforge3[0;33m' instead.
+
+[1;31mWARNING:[0;33m Before switching to another conda providing module, you might want to reverse previous made changes to your shell by executing: [0;36mconda init --reverse[0;33m
+Be aware that all conda environments share the same configuration files and folders.
+[0m
+# conda environments:
+#
+bla                      /beegfs/home/e/eilermas/.conda/envs/bla
+env_torch                /beegfs/home/e/eilermas/.conda/envs/env_torch
+install_env              /beegfs/home/e/eilermas/.conda/envs/install_env
+kiaaa_env                /beegfs/home/e/eilermas/.conda/envs/kiaaa_env
+need_env                 /beegfs/home/e/eilermas/.conda/envs/need_env
+new                      /beegfs/home/e/eilermas/.conda/envs/new
+obj_detection_env        /beegfs/home/e/eilermas/.conda/envs/obj_detection_env
+paisenv                  /beegfs/home/e/eilermas/.conda/envs/paisenv
+sap                      /beegfs/home/e/eilermas/.conda/envs/sap
+torch_kaolin             /beegfs/home/e/eilermas/.conda/envs/torch_kaolin
+base                  *  /cluster/anaconda3/2021.11
+
+INFO 04-04 19:10:47 [__init__.py:239] Automatically detected platform cuda.
+INFO 04-04 19:10:55 [config.py:585] This model supports multiple tasks: {'embed', 'reward', 'classify', 'generate', 'score'}. Defaulting to 'generate'.
+INFO 04-04 19:10:55 [config.py:1519] Defaulting to use mp for distributed inference
+INFO 04-04 19:10:55 [config.py:1697] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 04-04 19:10:57 [core.py:54] Initializing a V1 LLM engine (v0.8.2) with config: model='/beegfs/home/e/eilermas/Projekte/models/DeepSeek-R1-Distill-Llama-70B', speculative_config=None, tokenizer='/beegfs/home/e/eilermas/Projekte/models/DeepSeek-R1-Distill-Llama-70B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=2048, download_dir=None, load_format=auto, tensor_parallel_size=8, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=/beegfs/home/e/eilermas/Projekte/models/DeepSeek-R1-Distill-Llama-70B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"level":3,"custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":512}
+WARNING 04-04 19:10:57 [multiproc_worker_utils.py:306] Reducing Torch parallelism from 60 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 04-04 19:10:57 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3, 4, 5, 6, 7], buffer_handle=(8, 10485760, 10, 'psm_71c3736b'), local_subscribe_addr='ipc:///scratch-local/484763/be8ebcdd-c050-4301-946e-7658bea79d0a', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 04-04 19:10:57 [utils.py:2321] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14d8ede5cdf0>
+[1;36m(VllmWorker rank=0 pid=12254)[0;0m INFO 04-04 19:10:57 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_d56e5fb6'), local_subscribe_addr='ipc:///scratch-local/484763/02e19286-cdd8-4441-9c86-b4c846682e3a', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 04-04 19:10:58 [utils.py:2321] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14d8ede5d6c0>
+[1;36m(VllmWorker rank=1 pid=12271)[0;0m INFO 04-04 19:10:58 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_2633cbd5'), local_subscribe_addr='ipc:///scratch-local/484763/f5d706a3-48dc-4638-a9f9-7edde42dd25b', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 04-04 19:10:59 [utils.py:2321] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14d8ede5d360>
+[1;36m(VllmWorker rank=2 pid=12316)[0;0m INFO 04-04 19:10:59 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_e0b00263'), local_subscribe_addr='ipc:///scratch-local/484763/861b10f4-e6f5-4e31-bc42-60f37f24191f', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 04-04 19:10:59 [utils.py:2321] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14d8ede5d660>
+[1;36m(VllmWorker rank=3 pid=12343)[0;0m INFO 04-04 19:10:59 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_c9fdf59f'), local_subscribe_addr='ipc:///scratch-local/484763/07de1a0b-9ebb-43ae-bc8f-67f59c920eed', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 04-04 19:11:00 [utils.py:2321] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14d8ede5e950>
+[1;36m(VllmWorker rank=4 pid=12370)[0;0m INFO 04-04 19:11:00 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_282ae474'), local_subscribe_addr='ipc:///scratch-local/484763/15a9de0b-6374-4a41-b263-19c9999e90f4', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 04-04 19:11:01 [utils.py:2321] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14d8ede5d060>
+[1;36m(VllmWorker rank=5 pid=12397)[0;0m INFO 04-04 19:11:01 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_c6d5a211'), local_subscribe_addr='ipc:///scratch-local/484763/67f3a56f-2460-4f7b-97c0-83ac1af1bf60', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 04-04 19:11:01 [utils.py:2321] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14d8ede5dba0>
+[1;36m(VllmWorker rank=6 pid=12423)[0;0m INFO 04-04 19:11:01 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_b3e4ebcc'), local_subscribe_addr='ipc:///scratch-local/484763/f8c15887-2d11-44d2-8e02-e3db7decb2b4', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 04-04 19:11:02 [utils.py:2321] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14d8ede5e170>
+[1;36m(VllmWorker rank=7 pid=12451)[0;0m INFO 04-04 19:11:02 [shm_broadcast.py:259] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_69fea59f'), local_subscribe_addr='ipc:///scratch-local/484763/66f84561-4ac8-45ad-875d-19ec9f1d5f25', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=1 pid=12271)[0;0m INFO 04-04 19:11:03 [utils.py:931] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=1 pid=12271)[0;0m INFO 04-04 19:11:03 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=2 pid=12316)[0;0m INFO 04-04 19:11:03 [utils.py:931] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=2 pid=12316)[0;0m INFO 04-04 19:11:03 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=3 pid=12343)[0;0m INFO 04-04 19:11:03 [utils.py:931] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=6 pid=12423)[0;0m INFO 04-04 19:11:03 [utils.py:931] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=3 pid=12343)[0;0m INFO 04-04 19:11:03 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=4 pid=12370)[0;0m INFO 04-04 19:11:03 [utils.py:931] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=7 pid=12451)[0;0m INFO 04-04 19:11:03 [utils.py:931] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=6 pid=12423)[0;0m INFO 04-04 19:11:03 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=4 pid=12370)[0;0m INFO 04-04 19:11:03 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=7 pid=12451)[0;0m INFO 04-04 19:11:03 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=0 pid=12254)[0;0m INFO 04-04 19:11:03 [utils.py:931] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=0 pid=12254)[0;0m INFO 04-04 19:11:03 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=5 pid=12397)[0;0m INFO 04-04 19:11:03 [utils.py:931] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=5 pid=12397)[0;0m INFO 04-04 19:11:03 [pynccl.py:69] vLLM is using nccl==2.21.5
