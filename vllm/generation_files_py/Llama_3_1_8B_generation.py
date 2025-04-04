@@ -2,7 +2,7 @@ import argparse
 import os
 from vllm import LLM, SamplingParams
 
-def main_DeepSeek_R1_Distill_Llama_70B(args):
+def main_Llama_3_1_8B(args):
     
 
     # Qwen-style prompt
@@ -19,7 +19,7 @@ def main_DeepSeek_R1_Distill_Llama_70B(args):
     output_path = os.path.join(args.output_dir, args.output_file)
     print(f"Generation saved to ")
     # Load model
-    args.specific_model_path = os.path.join(args.model_path,'DeepSeek-R1-Distill-Llama-70B')
+    args.specific_model_path = os.path.join(args.model_path,'Llama-3.1-8B')
     print(f"Generation saved t")
     llm = LLM(model=args.specific_model_path,max_model_len=args.max_model_len,tensor_parallel_size=args.tensor_parallel_size)
     print(f"Generation saved to ")
@@ -66,4 +66,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    main_DeepSeek_R1_Distill_Llama_70B(args)
+    main_Llama_3_1_8B(args)
