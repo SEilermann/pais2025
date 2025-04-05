@@ -20,7 +20,7 @@ def main():
     parser.add_argument('--temperature', type=float, default=0.7)
     parser.add_argument('--top_p', type=float, default=0.9)
     parser.add_argument('--top_k', type=int, default=-1)
-    parser.add_argument('--max_tokens', type=int, default=1000)
+    parser.add_argument('--max_tokens', type=int, default=100)
     parser.add_argument('--repetition_penalty', type=float, default=1.0)
 
     args = parser.parse_args()

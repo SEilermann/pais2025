@@ -24,6 +24,8 @@ def main_DeepSeek_R1_Distill_Llama_70B(args):
     llm = LLM(
             model=args.specific_model_path,
             max_model_len=args.max_model_len,
+            trust_remote_code=True,
+            dtype="bfloat16",
             tensor_parallel_size=args.tensor_parallel_size)
     print(f"Generation saved to ")
     # Set sampling parameters

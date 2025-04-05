@@ -22,6 +22,18 @@ conda activate paisenv
 echo "Visible GPUs: $CUDA_VISIBLE_DEVICES"
 nvidia-smi
 
+# --- NCCL Performance Tuning ---
+#export NCCL_DEBUG=INFO
+#export NCCL_IB_HCA=mlx5
+export NCCL_SOCKET_IFNAME=ib0
+#export NCCL_NET_GDR_LEVEL=SYS
+#export NCCL_P2P_LEVEL=SYS
+
+# Optional: other envs
+#export TORCH_DISTRIBUTED_DEBUG=INFO
+
+
+
 #Qwen2_5_72B, DeepSeek_R1_Distill_Llama_70B Llama_3_1_8B
 
 srun python /beegfs/home/e/eilermas/Projekte/pais2025/vllm/main.py \
@@ -29,5 +41,6 @@ srun python /beegfs/home/e/eilermas/Projekte/pais2025/vllm/main.py \
     --output_dir /beegfs/home/e/eilermas/Projekte/pais2025/experiments \
     --output_file first_test_Llama_3_1_8B.txt \
     --model DeepSeek_R1_Distill_Llama_70B \
-    --tensor_parallel_size 8     
+    --tensor_parallel_size 8 \
+    
 
