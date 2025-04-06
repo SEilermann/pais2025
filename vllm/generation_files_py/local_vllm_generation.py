@@ -5,7 +5,8 @@ Script to run it on ISCC or local computer.
 '''
 
 # 1. Load the OpenChat model
-llm = LLM(model="/home/paisteam/models/Llama-3.1-8B")
+
+llm = LLM(model="/home/paisteam/models/Llama-3.1-8B",max_model_len=4000,tensor_parallel_size=2)
 
 
 # 2. Define your prompt
