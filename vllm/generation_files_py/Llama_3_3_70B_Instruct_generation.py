@@ -2,38 +2,37 @@ import argparse
 import os
 from vllm import LLM, SamplingParams
 
-def main_Llama_3_1_8B(args):
+def main_Llama_3_3_70B_Instruct(args):
     
 
     # Qwen-style prompt
     prompt = (
-    "[INST] <<SYS>>\n"
-    "You are an expert AI assistant.\n"
-    "<</SYS>>\n\n"
-    "What are the main differences between GPT-3 and GPT-4?\n"
-    "[/INST]"
+        "<|system|>\nYou are a helpful assistant.\n"
+        "<|user|>\nWhat is King Kong?\n"
+        "<|assistant|>"
     )
 
     # Create output directory if it doesn't exist
     os.makedirs(args.output_dir, exist_ok=True)
     output_path = os.path.join(args.output_dir, args.output_file)
-    print(f"Generation saved to ")
+
     # Load model
-    args.specific_model_path = os.path.join(args.model_path,'Llama-3.1-8B')
-    print(f"Generation saved t")
-    llm = LLM(model=args.specific_model_path,tensor_parallel_size=2,max_model_len=args.max_model_len)
-    print(f"Generation saved to ")
+    args.specific_model_path = os.path.join(args.model_path,'Llama-3.3-70B-Instruct')
+    llm = LLM(model=args.specific_model_path,tensor_parallel_size=args.tensor_parallel_size,gpu_memory_utilization=0.80,max_model_len=args.max_model_len)
+
     # Set sampling parameters
     sampling_params = SamplingParams(
         temperature=args.temperature,
         top_p=args.top_p,
         top_k=args.top_k,
-        max_tokens=args.max_tokens,
+        imax_tokens=args.max_tokens,
         repetition_penalty=args.repetition_penalty
     )
 
     # Run generation
-    outputs = llm.generate(prompt, sampling_params)
+    outputs = llm.generate(prompt,
+            temperature=0,
+            max_tokens=100)
 
     # Get the text
     generation = outputs[0].outputs[0].text.strip()
@@ -66,4 +65,5 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    main_Llama_3_1_8B(args)
+    main_Qwen2_5_72B(args)
+

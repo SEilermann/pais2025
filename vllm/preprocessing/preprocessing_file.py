@@ -23,6 +23,7 @@ def main():
     parser.add_argument('--DeepSeek_R1_Distill_Llama_70B', action='store_true', help='Download DeepSeek_R1_Distill_Llama_70B')
     parser.add_argument('--Qwen2_5_72B', action='store_true', help='Download Qwen2_5_72B')
     parser.add_argument('--Mixtral_8x7B_Instruct', action='store_true', help='Download Mixtral_8x7B_Instruct')
+    parser.add_argument('--gemma_3_27b_it', action='store_true', help='Download Mixtral_8x7B_Instruct')    
 
     parser.add_argument('--model_DIR', type=str, default='', help='Prompt to send to the model')
     args = parser.parse_args()
@@ -82,6 +83,13 @@ def main():
             local_dir_use_symlinks=False
         )
 
+    # google/gemma-3-27b-it
+    if args.gemma_3_27b_it:
+          snapshot_download(
+              repo_id="google/gemma-3-27b-it",
+              local_dir=os.path.join(folder, "gemma-3-27b-it"),
+              local_dir_use_symlinks=False
+         )
 
     
 if __name__ == "__main__":

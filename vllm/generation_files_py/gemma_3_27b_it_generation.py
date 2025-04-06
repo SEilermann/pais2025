@@ -2,27 +2,30 @@ import argparse
 import os
 from vllm import LLM, SamplingParams
 
-def main_Llama_3_1_8B(args):
+def main_gemma_3_27b_it(args):
     
 
     # Qwen-style prompt
     prompt = (
-    "[INST] <<SYS>>\n"
-    "You are an expert AI assistant.\n"
-    "<</SYS>>\n\n"
-    "What are the main differences between GPT-3 and GPT-4?\n"
-    "[/INST]"
-    )
+        "What is King Kong?")
 
     # Create output directory if it doesn't exist
     os.makedirs(args.output_dir, exist_ok=True)
     output_path = os.path.join(args.output_dir, args.output_file)
-    print(f"Generation saved to ")
+
     # Load model
-    args.specific_model_path = os.path.join(args.model_path,'Llama-3.1-8B')
-    print(f"Generation saved t")
-    llm = LLM(model=args.specific_model_path,tensor_parallel_size=2,max_model_len=args.max_model_len)
-    print(f"Generation saved to ")
+    print('before loading')
+    args.specific_model_path = os.path.join(args.model_path,'gemma-3-27b-it')
+    #llm = LLM(model=args.specific_model_path,tensor_parallel_size=args.tensor_parallel_size,gpu_memory_utilization=0.80,max_model_len=args.max_model_len)
+    llm = LLM(
+    model="/beegfs/home/e/eilermas/Projekte/models/gemma-3-27b-it",
+    tensor_parallel_size=2,
+    dtype="float16",
+    gpu_memory_utilization=0.75,
+    max_model_len=2048,
+    )
+    print('after loading')
+
     # Set sampling parameters
     sampling_params = SamplingParams(
         temperature=args.temperature,
@@ -31,9 +34,12 @@ def main_Llama_3_1_8B(args):
         max_tokens=args.max_tokens,
         repetition_penalty=args.repetition_penalty
     )
-
+    
+    print(prompt)
+    print("start generation")
     # Run generation
-    outputs = llm.generate(prompt, sampling_params)
+    outputs = llm.generate(prompt,
+            sampling_params)
 
     # Get the text
     generation = outputs[0].outputs[0].text.strip()
@@ -66,4 +72,5 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    main_Llama_3_1_8B(args)
+    main_Qwen2_5_72B(args)
+
