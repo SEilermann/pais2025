@@ -1,5 +1,5 @@
 import os
-os.environ["NCCL_SOCKET_IFNAME"] = "lo"
+#os.environ["NCCL_SOCKET_IFNAME"] = "lo"
 
 
 import argparse

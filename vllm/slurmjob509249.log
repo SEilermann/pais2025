@@ -1,0 +1,179 @@
+INFO: Please use 'spack install' only on login nodes
+INFO: Refresh upstream modules with: spack module lmod refresh --delete-tree
+--upstream-modules -y 
+[0;33m+-----------------------------------------------------------------------------------+
+[0;33m|                       [1;31mCOMPLIANCE WITH SOFTWARE LICENSE TERMS[0;33m                      |
+[0;33m|                                                                                   |
+[0;33m| Your use of this module constitutes acceptance of the software license agreement. |
+[0;33m| Read the Term of Service of Anaconda. In most cases you need to buy a license to  |
+[0;33m| use the service. You might want to use the '[0;36mminiforge3[0;33m' module instead or set     |
+[0;33m| another default cannel: [0;36mconda config --add channels conda-forge [0;33m                  |
+[0;33m| [0;36mconda config --set channel_priority strict [0;33m     (both commands are necessary)     |
+[0;33m|                                                                                   |
+[0;33m| Alternatively use: [0;36mconda install [0m<package> [0;36m--channel conda-forge -n [0m<myenv>     [0;33m  |
+[0;33m|                                                                                   |
+[0;33m| '[1;31mFor sake of clarity, use by government entities and nonprofit entities with over[0;33m |
+[0;33m| [1;31m200 employees or contractors is considered Organizational Use.                   [0;33m |
+[0;33m| [1;31mPurchasing Starter tier license(s) does not satisfy the Organizational Use paid  [0;33m |
+[0;33m| [1;31mlicense requirement set forth in this Section 2.1. Educational Entities will be  [0;33m |
+[0;33m| [1;31mexempt from the paid license requirement, provided that the use of the Anaconda  [0;33m |
+[0;33m| [1;31mOffering(s) is solely limited to being used for a curriculum-based course.       [0;33m |
+[0;33m| [1;31mAnaconda reserves the right to monitor the registration, download, use,          [0;33m |
+[0;33m| [1;31minstallation, access, or enjoyment of the Anaconda Offerings to ensure it is part[0;33m |
+[0;33m| [1;31mof a curriculum.  Utilizing Miniconda to pull package updates from the           [0;33m |
+[0;33m| [1;31mAnaconda Public Repository without a commercial license (if required by the      [0;33m |
+[0;33m| [1;31mconditions set forth in Section 2 of this Terms of Service) is considered a      [0;33m |
+[0;33m| [1;31mviolation of the Terms of Service.[0;33m'                                               |
+[0;33m| [1;31m                  (ANACONDA TERMS OF SERVICE 2.1, Effective Date: March 31, 2024)[0;33m |
+[0;33m+-----------------------------------------------------------------------------------+
+
+[1;31mWARNING:[0;33m Deprecated module. Will be removed in April 2025.
+Use the module '[0;36mminiforge3[0;33m' instead.
+
+[1;31mWARNING:[0;33m Before switching to another conda providing module, you might want to reverse previous made changes to your shell by executing: [0;36mconda init --reverse[0;33m
+Be aware that all conda environments share the same configuration files and folders.
+[0m
+========== CUDA ENV CHECK ==========
+CUDA_HOME = /cluster/spack/0.22.1/opt/spack/linux-rocky8-icelake/gcc-13.2.0/cuda-12.4.1-ge4bge4tgmhpkvd4bhxa6x6ir52bn7d6
+/cluster/spack/0.22.1/opt/spack/linux-rocky8-icelake/gcc-13.2.0/cuda-12.4.1-ge4bge4tgmhpkvd4bhxa6x6ir52bn7d6/bin/nvcc
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Thu_Mar_28_02:18:24_PDT_2024
+Cuda compilation tools, release 12.4, V12.4.131
+Build cuda_12.4.r12.4/compiler.34097967_0
+/cluster/spack/0.22.1/opt/spack/linux-rocky8-icelake/gcc-13.2.0/cuda-12.4.1-ge4bge4tgmhpkvd4bhxa6x6ir52bn7d6/include/cuda.h
+=====================================
+MASTER_PORT=29500
+RANK=0
+WORLD_SIZE=2
+MASTER_ADDR=gpu06
+####################
+=== Testing NCCL availability in PyTorch ===
+NCCL available: True
+####################
+W0411 14:14:40.318000 29333 site-packages/torch/distributed/run.py:792] 
+W0411 14:14:40.318000 29333 site-packages/torch/distributed/run.py:792] *****************************************
+W0411 14:14:40.318000 29333 site-packages/torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0411 14:14:40.318000 29333 site-packages/torch/distributed/run.py:792] *****************************************
+
+--- torch.distributed env vars ---
+RANK: 1
+WORLD_SIZE: 2
+LOCAL_RANK: 1
+MASTER_ADDR: 127.0.0.1
+MASTER_PORT: 29500
+NCCL_SOCKET_IFNAME: lo
+NCCL_DEBUG: INFO
+CUDA_VISIBLE_DEVICES: 0,1
+Hallo1
+
+--- torch.distributed env vars ---
+RANK: 0
+WORLD_SIZE: 2
+LOCAL_RANK: 0
+MASTER_ADDR: 127.0.0.1
+MASTER_PORT: 29500
+NCCL_SOCKET_IFNAME: lo
+NCCL_DEBUG: INFO
+CUDA_VISIBLE_DEVICES: 0,1
+Hallo1
+Hallo2
+Hallo2
+Hallo3
+Hallo3
+gpu06:29354:29354 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to lo
+gpu06:29354:29354 [0] NCCL INFO Bootstrap : Using lo:127.0.0.1<0>
+gpu06:29354:29354 [0] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+gpu06:29354:29354 [0] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+gpu06:29354:29354 [0] NCCL INFO NET/Plugin: Using internal network plugin.
+gpu06:29354:29354 [0] NCCL INFO cudaDriverVersion 12060
+NCCL version 2.21.5+cuda12.4
+gpu06:29354:29354 [0] NCCL INFO Comm config Blocking set to 1
+gpu06:29355:29355 [1] NCCL INFO cudaDriverVersion 12060
+gpu06:29355:29355 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to lo
+gpu06:29355:29355 [1] NCCL INFO Bootstrap : Using lo:127.0.0.1<0>
+gpu06:29355:29355 [1] NCCL INFO NET/Plugin: No plugin found (libnccl-net.so)
+gpu06:29355:29355 [1] NCCL INFO NET/Plugin: Plugin load returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory : when loading libnccl-net.so
+gpu06:29355:29355 [1] NCCL INFO NET/Plugin: Using internal network plugin.
+gpu06:29355:29355 [1] NCCL INFO Comm config Blocking set to 1
+gpu06:29354:29381 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to lo
+gpu06:29355:29382 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to lo
+gpu06:29354:29381 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/IB [RO]; OOB lo:127.0.0.1<0>
+gpu06:29354:29381 [0] NCCL INFO Using non-device net plugin version 0
+gpu06:29354:29381 [0] NCCL INFO Using network IB
+gpu06:29354:29381 [0] NCCL INFO DMA-BUF is available on GPU device 0
+gpu06:29355:29382 [1] NCCL INFO NET/IB : Using [0]mlx5_0:1/IB [RO]; OOB lo:127.0.0.1<0>
+gpu06:29355:29382 [1] NCCL INFO Using non-device net plugin version 0
+gpu06:29355:29382 [1] NCCL INFO Using network IB
+gpu06:29355:29382 [1] NCCL INFO DMA-BUF is available on GPU device 1
+gpu06:29355:29382 [1] NCCL INFO ncclCommInitRank comm 0x8eba2c0 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId d6000 commId 0x4809aa55b1021238 - Init START
+gpu06:29354:29381 [0] NCCL INFO ncclCommInitRank comm 0x80f6a10 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 57000 commId 0x4809aa55b1021238 - Init START
+gpu06:29354:29381 [0] NCCL INFO Could not find real path of /sys/class/pci_bus/10000:8/../../10000:81:00.
+gpu06:29355:29382 [1] NCCL INFO Could not find real path of /sys/class/pci_bus/10000:8/../../10000:81:00.
+gpu06:29354:29381 [0] NCCL INFO Topology detection : could not read /sys/devices/system/node/node-1/cpumap, ignoring
+gpu06:29355:29382 [1] NCCL INFO Topology detection : could not read /sys/devices/system/node/node-1/cpumap, ignoring
+gpu06:29354:29381 [0] NCCL INFO Topology detection : could not read /sys/devices/system/node/node-1/cpumap, ignoring
+gpu06:29355:29382 [1] NCCL INFO Topology detection : could not read /sys/devices/system/node/node-1/cpumap, ignoring
+gpu06:29354:29381 [0] NCCL INFO KV Convert to int : could not find value of '' in dictionary, falling back to 60
+gpu06:29355:29382 [1] NCCL INFO KV Convert to int : could not find value of '' in dictionary, falling back to 60
+gpu06:29354:29381 [0] NCCL INFO NCCL_P2P_LEVEL set by environment to LOC
+gpu06:29355:29382 [1] NCCL INFO NCCL_P2P_LEVEL set by environment to LOC
+W0411 14:14:43.139000 29333 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 29354 closing signal SIGTERM
+E0411 14:14:43.155000 29333 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: -11) local_rank: 1 (pid: 29355) of binary: /beegfs/home/e/eilermas/.conda/envs/new_env/bin/python
+Traceback (most recent call last):
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/lib/python3.10/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/lib/python3.10/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/beegfs/home/e/eilermas/Projekte/pais2025/vllm/test.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-04-11_14:14:43
+  host      : gpu06.cluster.cbrz.hsu-hh.de
+  rank      : 1 (local_rank: 1)
+  exitcode  : -11 (pid: 29355)
+  error_file: <N/A>
+  traceback : Signal 11 (SIGSEGV) received by PID 29355
+============================================================
+########################################
+#            Job Accounting            #
+########################################
+Name                : ddp-vllm
+User                : eilermas
+Account             : hsuper
+Partition           : small_gpu8
+QOS                 : normal
+NNodes              : 1
+Nodes               : gpu06
+Cores               : 16 (8 physical)
+GPUs                : 2
+State               : COMPLETED
+ExitCode            : 0:0
+Submit              : 2025-04-11T14:14:06
+Start               : 2025-04-11T14:14:31
+End                 : 2025-04-11T14:14:43
+Waited              : 00:00:25
+Reserved walltime   : 00:10:00
+Used walltime       : 00:00:12
+Used CPU time       : 00:00:11 (Efficiency: 12.15%)
+% User (Computation): 81.31%
+% System (I/O)      : 18.69%
+Mem reserved        : 32G
+Max Mem used        : 0.00  (gpu06)
+Max Disk Write      : 0.00  (gpu06)
+Max Disk Read       : 10.24K (gpu06)
+Energy (CPU+Mem)    : 0.00kWh (0.00kg CO2, 0.00€)

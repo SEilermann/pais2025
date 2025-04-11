@@ -13,7 +13,8 @@ def main_gemma_3_27b_it(args):
     output_path = os.path.join(args.output_dir, args.output_file)
 
     # Load model
-    args.specific_model_path = os.path.join(args.model_path,'gemma-3-27b-it')
+    #args.specific_model_path = os.path.join(args.model_path,'gemma-3-27b-it')
+    args.specific_model_path = args.model_path
     llm = LLM(model=args.specific_model_path,
               tensor_parallel_size=args.tensor_parallel_size,
               gpu_memory_utilization=0.80,

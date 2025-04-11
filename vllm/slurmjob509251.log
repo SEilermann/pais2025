@@ -1,0 +1,100 @@
+INFO: Please use 'spack install' only on login nodes
+INFO: Refresh upstream modules with: spack module lmod refresh --delete-tree
+--upstream-modules -y 
+[0;33m+-----------------------------------------------------------------------------------+
+[0;33m|                       [1;31mCOMPLIANCE WITH SOFTWARE LICENSE TERMS[0;33m                      |
+[0;33m|                                                                                   |
+[0;33m| Your use of this module constitutes acceptance of the software license agreement. |
+[0;33m| Read the Term of Service of Anaconda. In most cases you need to buy a license to  |
+[0;33m| use the service. You might want to use the '[0;36mminiforge3[0;33m' module instead or set     |
+[0;33m| another default cannel: [0;36mconda config --add channels conda-forge [0;33m                  |
+[0;33m| [0;36mconda config --set channel_priority strict [0;33m     (both commands are necessary)     |
+[0;33m|                                                                                   |
+[0;33m| Alternatively use: [0;36mconda install [0m<package> [0;36m--channel conda-forge -n [0m<myenv>     [0;33m  |
+[0;33m|                                                                                   |
+[0;33m| '[1;31mFor sake of clarity, use by government entities and nonprofit entities with over[0;33m |
+[0;33m| [1;31m200 employees or contractors is considered Organizational Use.                   [0;33m |
+[0;33m| [1;31mPurchasing Starter tier license(s) does not satisfy the Organizational Use paid  [0;33m |
+[0;33m| [1;31mlicense requirement set forth in this Section 2.1. Educational Entities will be  [0;33m |
+[0;33m| [1;31mexempt from the paid license requirement, provided that the use of the Anaconda  [0;33m |
+[0;33m| [1;31mOffering(s) is solely limited to being used for a curriculum-based course.       [0;33m |
+[0;33m| [1;31mAnaconda reserves the right to monitor the registration, download, use,          [0;33m |
+[0;33m| [1;31minstallation, access, or enjoyment of the Anaconda Offerings to ensure it is part[0;33m |
+[0;33m| [1;31mof a curriculum.  Utilizing Miniconda to pull package updates from the           [0;33m |
+[0;33m| [1;31mAnaconda Public Repository without a commercial license (if required by the      [0;33m |
+[0;33m| [1;31mconditions set forth in Section 2 of this Terms of Service) is considered a      [0;33m |
+[0;33m| [1;31mviolation of the Terms of Service.[0;33m'                                               |
+[0;33m| [1;31m                  (ANACONDA TERMS OF SERVICE 2.1, Effective Date: March 31, 2024)[0;33m |
+[0;33m+-----------------------------------------------------------------------------------+
+
+[1;31mWARNING:[0;33m Deprecated module. Will be removed in April 2025.
+Use the module '[0;36mminiforge3[0;33m' instead.
+
+[1;31mWARNING:[0;33m Before switching to another conda providing module, you might want to reverse previous made changes to your shell by executing: [0;36mconda init --reverse[0;33m
+Be aware that all conda environments share the same configuration files and folders.
+[0m
+========== CUDA ENV CHECK ==========
+CUDA_HOME = /cluster/spack/0.22.1/opt/spack/linux-rocky8-icelake/gcc-13.2.0/cuda-12.4.1-ge4bge4tgmhpkvd4bhxa6x6ir52bn7d6
+/cluster/spack/0.22.1/opt/spack/linux-rocky8-icelake/gcc-13.2.0/cuda-12.4.1-ge4bge4tgmhpkvd4bhxa6x6ir52bn7d6/bin/nvcc
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Thu_Mar_28_02:18:24_PDT_2024
+Cuda compilation tools, release 12.4, V12.4.131
+Build cuda_12.4.r12.4/compiler.34097967_0
+/cluster/spack/0.22.1/opt/spack/linux-rocky8-icelake/gcc-13.2.0/cuda-12.4.1-ge4bge4tgmhpkvd4bhxa6x6ir52bn7d6/include/cuda.h
+=====================================
+MASTER_PORT=29500
+RANK=0
+WORLD_SIZE=2
+MASTER_ADDR=gpu06
+####################
+=== Testing NCCL availability in PyTorch ===
+NCCL available: True
+####################
+Traceback (most recent call last):
+  File "/beegfs/home/e/eilermas/Projekte/pais2025/vllm/test.py", line 9, in <module>
+    dist.init_process_group(backend="nccl")
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 1714, in init_process_group
+    store, rank, world_size = next(rendezvous_iterator)
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/lib/python3.10/site-packages/torch/distributed/rendezvous.py", line 274, in _env_rendezvous_handler
+    store = _create_c10d_store(
+  File "/beegfs/home/e/eilermas/.conda/envs/new_env/lib/python3.10/site-packages/torch/distributed/rendezvous.py", line 194, in _create_c10d_store
+    return TCPStore(
+RuntimeError: The server socket has failed to listen on any local network address. port: 29500, useIpv6: 0, code: -98, name: EADDRINUSE, message: address already in use
+srun: error: gpu06: task 1: Exited with exit code 1
+srun: Terminating StepId=509251.0
+slurmstepd: error: *** STEP 509251.0 ON gpu06 CANCELLED AT 2025-04-11T14:16:50 ***
+srun: error: gpu06: task 0: Terminated
+srun: Force Terminated StepId=509251.0
+########################################
+#            Job Accounting            #
+########################################
+Name                : ddp-vllm
+User                : eilermas
+Account             : hsuper
+Partition           : small_gpu8
+QOS                 : normal
+NNodes              : 1
+Nodes               : gpu06
+Cores               : 16 (8 physical)
+GPUs                : 2
+State               : CANCELLED
+ExitCode            : 0:0
+Submit              : 2025-04-11T14:16:37
+Start               : 2025-04-11T14:16:41
+End                 : 2025-04-11T14:16:50
+Waited              : 00:00:04
+Reserved walltime   : 00:10:00
+Used walltime       : 00:00:09
+Used CPU time       : 00:00:09 (Efficiency: 12.73%)
+% User (Computation): 84.60%
+% System (I/O)      : 15.39%
+Mem reserved        : 32G
+Max Mem used        : 229.17M (gpu06)
+Max Disk Write      : 0.00  (gpu06)
+Max Disk Read       : 15.18M (gpu06)
+Energy (CPU+Mem)    : 0.00kWh (0.00kg CO2, 0.00€)
