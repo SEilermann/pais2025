@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=ddp-vllm          # Job name
 #SBATCH --nodes=1                    # Number of nodes
-#SBATCH --partition=small_gpu8        # Partition name
+#SBATCH --partition=small_gpu        # Partition name
 #SBATCH --ntasks-per-node=2          # Number of tasks (processes) per node
 #SBATCH --cpus-per-task=32            # CPU cores per task
 #SBATCH --gres=gpu:2                 # Number of GPUs per node
@@ -12,14 +12,15 @@
 
 # Load required modules
 module purge
-module load USER-SPACK/0.22.1
-module load gcc/13.2.0
-module load cuda/12.4.1
-module load anaconda3/2021.11
+module load nvhpc/24.3
+module load miniforge3/24.3.0-0
 
 # Activate conda environment
 eval "$(conda shell.bash hook)"
 conda activate new_env
+
+export NCCL_ROOT="$NVHPC_ROOT/Linux_x86_64/24.3/comm_libs/nccl"
+export CUDA_HOME="$(nvfortran -cuda -printcudaversion 2>&1 | grep "CUDA Path" | cut -d "=" -f 2)"
 
 # Sanity checks
 echo "========== CUDA ENV CHECK =========="
@@ -28,8 +29,6 @@ which nvcc
 nvcc --version
 ls $CUDA_HOME/include/cuda.h
 echo "====================================="
-
-export LD_LIBRARY_PATH=/cluster/spack/0.22.1/opt/spack/linux-rocky8-icelake/gcc-13.2.0/cuda-12.4.1-ge4bge4tgmhpkvd4bhxa6x6ir52bn7d6/lib64:$LD_LIBRARY_PATH
 
 # PyTorch distributed setup
 export MASTER_PORT=29500
@@ -52,34 +51,12 @@ export NCCL_DEBUG=TRACE
 export NCCL_DEBUG_SUBSYS=INIT,GRAPH,ENV
 
 export NCCL_SOCKET_IFNAME=lo
-
-echo '####################'
-echo "=== Testing NCCL availability in PyTorch ==="
-python -c "import torch; print('NCCL available:', torch.distributed.is_nccl_available())"
-echo '####################'
+export NCCL_IB_DISABLE=1
 
 export NCCL_P2P_DISABLE=1
 export NCCL_SHM_DISABLE=0
 
-cp -r /beegfs/home/e/eilermas/Projekte/models/gemma-3-27b-it $SLURM_TMPDIR/gemma-3-27b-it
-echo $SLURM_TMPDIR
-echo ls $SLURM_TMPDIR/gemma-3-27b-it
 export VLLM_HOST_IP=127.0.0.1
-echo '#################'
-echo '#################'
-echo $CUDA_HOME
-export NCCL_CUMEM_ENABLE=0
-# Launch script (adjust path as needed)
-# torchrun --nproc-per-node=2
-srun python /beegfs/home/e/eilermas/Projekte/pais2025/vllm/main.py \
-     --model_path $SLURM_TMPDIR/gemma-3-27b-it \
-     --output_dir /beegfs/home/e/eilermas/Projekte/pais2025/experiments \
-     --output_file first_test_Llama_3_3_70B.txt \
-     --model gemma_3_27b_it \
-     --tensor_parallel_size 2 \
 
 
-if [[ "$SLURM_PROCID" -eq 0 ]]; then
-    rm -f master_port.txt
-fi
 

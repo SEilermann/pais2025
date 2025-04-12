@@ -21,13 +21,14 @@ def main():
     #Model
     parser.add_argument('--model', type=str, default='gemma_3_27b_it', help='used model name')
     parser.add_argument('--tensor_parallel_size', type=int, default=2, help='used model name')
-    parser.add_argument('--max_model_len', type=int, default=100, help='used model name')
+    parser.add_argument('--max_model_len', type=int, default=3000, help='used model name')
 
     # Sampling parameters
+    parser.add_argument('--prompt', type=str, default='Who is King Kong and why is King Kong Monkey King and not a Greenhorn King?', help='Definition of a Prompt as String!')
     parser.add_argument('--temperature', type=float, default=0.7)
     parser.add_argument('--top_p', type=float, default=0.9)
     parser.add_argument('--top_k', type=int, default=-1)
-    parser.add_argument('--max_tokens', type=int, default=20)
+    parser.add_argument('--max_tokens', type=int, default=2000)
     parser.add_argument('--repetition_penalty', type=float, default=1.0)
 
     args = parser.parse_args()

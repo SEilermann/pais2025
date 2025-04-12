@@ -35,7 +35,7 @@ def main_gemma_3_27b_it(args):
     print(prompt)
 
     # Run generation
-    outputs = llm.generate(prompt,
+    outputs = llm.generate(args.prompt,
             sampling_params)
 
     # Get the text
@@ -43,7 +43,7 @@ def main_gemma_3_27b_it(args):
 
     # Save to file
     with open(output_path, "w") as f:
-        f.write(f"Input:\n{prompt}\n\n")
+        f.write(f"Input:\n{args.prompt}\n\n")
         f.write(f"Generation:\n{generation}\n")
 
     print(f"Generation saved to {output_path}")
