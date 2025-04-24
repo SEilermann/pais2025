@@ -60,7 +60,7 @@ export VLLM_HOST_IP=127.0.0.1
 
 
 prompt="Explain how neural networks learn from data in simple terms."
-
+#Qwen2_5_72B, DeepSeek_R1_Distill_Llama_70B, Llama_3_3_70B_Instruct 
 # Launch script (adjust path as needed)
 python /beegfs/home/e/eilermas/Projekte/pais2025/vllm/main.py \
      --model_path /beegfs/home/e/eilermas/Projekte/models/gemma-3-27b-it \
