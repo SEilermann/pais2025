@@ -22,6 +22,7 @@ def main():
     parser.add_argument('--Llama_3_3_70B_Instruct', action='store_true', help='Download Llama_3_3_70B_Instruct')
     parser.add_argument('--DeepSeek_R1_Distill_Llama_70B', action='store_true', help='Download DeepSeek_R1_Distill_Llama_70B')
     parser.add_argument('--Qwen2_5_72B', action='store_true', help='Download Qwen2_5_72B')
+    parser.add_argument('--Qwen3_235B_A22B_Instruct_2507', action='store_true', help='Download Qwen3_235B_A22B_Instruct_2507')
     parser.add_argument('--Mixtral_8x7B_Instruct', action='store_true', help='Download Mixtral_8x7B_Instruct')
     parser.add_argument('--gemma_3_27b_it', action='store_true', help='Download Mixtral_8x7B_Instruct')    
 
@@ -74,6 +75,12 @@ def main():
             local_dir=os.path.join(folder, "Qwen2.5-72B"),
             local_dir_use_symlinks=False
         )
+    if args.Qwen3_235B_A22B_Instruct_2507:
+          snapshot_download(
+              repo_id="Qwen/Qwen3-235B-A22B-Instruct-2507",
+              local_dir=os.path.join(folder, "Qwen3-235B-A22B-Instruct-2507"),
+              local_dir_use_symlinks=False
+          )
 
     # Mixtral-8x7B-Instruct
     if args.Mixtral_8x7B_Instruct:

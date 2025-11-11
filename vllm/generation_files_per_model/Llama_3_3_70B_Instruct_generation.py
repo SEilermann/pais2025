@@ -15,6 +15,7 @@ def main_Llama_3_3_70B_Instruct(args):
     args.specific_model_path = os.path.join(args.model_path,'Llama-3.3-70B-Instruct')
     llm = LLM(model=args.specific_model_path,
               tensor_parallel_size=args.tensor_parallel_size,
+              #pipeline_parallel_size=6,
               gpu_memory_utilization=0.80,
               max_num_seqs=1,
               max_model_len=args.max_model_len,
